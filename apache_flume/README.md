@@ -13,3 +13,5 @@ Then, run a container passing the desired agent's .conf file:
 ```bash
 $ docker run -p <relevant_port>:<relevant_port> test_flume <desired_agent_file.conf> <desired_agent_name>
 ```
+### Other resources
+- [This great Apache Flume overview](https://towardsdatascience.com/apache-flume-71ed475eee6d)
