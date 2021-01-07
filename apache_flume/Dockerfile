@@ -20,4 +20,4 @@ EXPOSE 44444
 
 ENTRYPOINT ["/bin/sh", "/flume/agent-runner.sh"]
 
-CMD ["flume/agents/netcat_to_console.conf", "agent"]
+CMD ["netcat_to_console.conf", "agent"]
