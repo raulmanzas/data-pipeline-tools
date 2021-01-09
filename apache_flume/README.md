@@ -14,7 +14,7 @@ Then, run a container passing the desired agent's .conf file:
 $ docker run -p <relevant_port>:<relevant_port> test_flume <desired_agent_file.conf> <desired_agent_name>
 ```
 
-If you want run one of the spool agents, you should also declare the volume:
+If you want run one of the spool agents, you can use the docker-compose file or declare the volume directly:
 ```bash
 $ docker run -v $(pwd)/.flume_spool/:/.flume_spool test_flume <desired_agent_file.conf> <desired_agent_name>
 ```

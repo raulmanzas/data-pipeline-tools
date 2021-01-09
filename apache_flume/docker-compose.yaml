@@ -1,11 +1,31 @@
 version: "3.8"
 
 services:
+  zookeeper:
+    image: bitnami/zookeeper
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    ports:
+      - 2181:2181
+
+  kafka:
+    image: bitnami/kafka
+    environment:
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+    ports:
+      - 9092:9092
+    depends_on:
+      - zookeeper
+
   flume:
     build:
       context: .
     # Replace this with the agent you want to run
-    command: "spool_to_console.conf spool_agent"
+    command: "spool_to_kafka.conf spool_agent"
     # Used for spool directory tests
     volumes:
       - .flume_spool:/.flume_spool
+    depends_on:
+      - kafka
