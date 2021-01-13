@@ -15,10 +15,10 @@ class YahooFinanceBolt: BaseBasicBolt() {
         val price = input!!.getValueByField("price") as Double
         val previousClose = input!!.getValueByField("previousClose") as Double
 
-        if (price <= previousClose) {
+        if (price < previousClose) {
             info("($timestamp) -> $company is worth less now than yesterday")
         } else {
-            info("($timestamp) -> $company is worth more than yesterday")
+            info("($timestamp) -> $company is worth the same or more than yesterday")
         }
         info("Current price is $price")
     }
