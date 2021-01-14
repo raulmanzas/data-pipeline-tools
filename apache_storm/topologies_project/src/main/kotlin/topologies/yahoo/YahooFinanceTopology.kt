@@ -6,7 +6,7 @@ import org.apache.storm.topology.TopologyBuilder
 class YahooFinanceTopology  {
 
     fun getName(): String {
-        return "ExclamationTopology"
+        return "YahooFinanceTopology"
     }
 
     fun getBuilder(): TopologyBuilder {
