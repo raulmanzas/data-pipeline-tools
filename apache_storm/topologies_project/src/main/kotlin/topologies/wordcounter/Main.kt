@@ -10,6 +10,6 @@ fun main() {
         wordCounterTopology.getConfig(),
         wordCounterTopology.getBuilder().createTopology()
     )
-    Thread.sleep(50000)
+    Thread.sleep(5000)
     cluster.close()
 }

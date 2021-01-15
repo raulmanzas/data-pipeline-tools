@@ -36,7 +36,7 @@ class WordSpout: BaseRichSpout() {
     override fun nextTuple() {
         if(finished) return
         try {
-            val word = bufferedReader.readLine()
+            val word = bufferedReader.readLine().orEmpty()
             if (word.isNullOrEmpty()) {
                 finished = true
                 fileReader.close()
